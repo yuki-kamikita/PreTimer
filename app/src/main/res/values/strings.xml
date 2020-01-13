@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PreTimer</string>
+    <string name="textTime">timePreset</string>
+    <string name="buttonReset">Reset</string>
+    <string name="buttonSub1">-60</string>
+    <string name="buttonSub10">-10</string>
+    <string name="buttonAdd1">+60</string>
+    <string name="buttonAdd10">+10</string>
+</resources>

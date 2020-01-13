@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backGround"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000020"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/textTime"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.237" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/buttonReset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeText" />
+
+    <Button
+        android:id="@+id/buttonSub1m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/buttonSub1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonReset"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/buttonSub10s"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReset" />
+
+    <Button
+        android:id="@+id/buttonSub10s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/buttonSub10"
+        app:layout_constraintEnd_toStartOf="@+id/buttonReset"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSub1m" />
+
+    <Button
+        android:id="@+id/buttonAdd1m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonAdd1"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSub1m"
+        app:layout_constraintEnd_toEndOf="@+id/buttonAdd10s"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonReset"
+        app:layout_constraintTop_toTopOf="@+id/buttonSub1m"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonAdd10s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buttonAdd10"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSub10s"
+        app:layout_constraintStart_toEndOf="@+id/buttonReset"
+        app:layout_constraintTop_toTopOf="@+id/buttonSub10s" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
