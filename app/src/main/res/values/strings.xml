@@ -6,4 +6,5 @@
     <string name="buttonSub10">-10</string>
     <string name="buttonAdd1">+60</string>
     <string name="buttonAdd10">+10</string>
+    <string name="button">Button</string>
 </resources>

@@ -5,7 +5,7 @@
     android:id="@+id/backGround"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000020"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
     <TextView
@@ -73,5 +73,21 @@
         app:layout_constraintBottom_toBottomOf="@+id/buttonSub10s"
         app:layout_constraintStart_toEndOf="@+id/buttonReset"
         app:layout_constraintTop_toTopOf="@+id/buttonSub10s" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_margin="30dp"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/progress"
+        android:rotation="-90"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
