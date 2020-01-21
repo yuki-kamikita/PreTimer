@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         progressBar.secondaryProgress = (timeMillis - preTime).toInt()
     }
 
-    /* 数字表示/非表示 */
+    /* 数字 表示/非表示 */
     private fun displayNumber(view: Int) {
         timeText.visibility = view
         buttonReset.visibility = view
