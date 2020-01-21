@@ -12,67 +12,25 @@
         android:id="@+id/timeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:text="@string/textTime"
         android:textColor="#FFFFFF"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.237" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="@string/buttonReset"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeText" />
-
-    <Button
-        android:id="@+id/buttonSub1m"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/buttonSub1"
-        app:layout_constraintEnd_toStartOf="@+id/buttonReset"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonSub10s"
-        app:layout_constraintTop_toBottomOf="@+id/buttonReset" />
-
-    <Button
-        android:id="@+id/buttonSub10s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/buttonSub10"
-        app:layout_constraintEnd_toStartOf="@+id/buttonReset"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSub1m" />
-
-    <Button
-        android:id="@+id/buttonAdd1m"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonAdd1"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSub1m"
-        app:layout_constraintEnd_toEndOf="@+id/buttonAdd10s"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonReset"
-        app:layout_constraintTop_toTopOf="@+id/buttonSub1m"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/buttonAdd10s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonAdd10"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSub10s"
-        app:layout_constraintStart_toEndOf="@+id/buttonReset"
-        app:layout_constraintTop_toTopOf="@+id/buttonSub10s" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -85,9 +43,89 @@
         android:rotation="-90"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerMin"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:descendantFocusability="blocksDescendants"
+        android:scrollbars="horizontal|vertical|none"
+        android:theme="@style/NumberPicker"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/textColon"
+        app:layout_constraintEnd_toStartOf="@+id/textColon"
+        app:layout_constraintTop_toTopOf="@+id/textColon" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerSec"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:background="#00862C2C"
+        android:descendantFocusability="blocksDescendants"
+        android:theme="@style/NumberPicker"
+        app:layout_constraintBottom_toBottomOf="@+id/textColon"
+        app:layout_constraintStart_toEndOf="@+id/textColon"
+        app:layout_constraintTop_toTopOf="@+id/textColon"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/textColon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        android:text="@string/colon"
+        android:textColor="?android:attr/textColorPrimary"
+        android:theme="@style/NumberPicker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerPremin"
+        android:layout_width="60dp"
+        android:layout_height="100dp"
+        android:descendantFocusability="blocksDescendants"
+        android:scrollbars="horizontal|vertical|none"
+        android:theme="@style/NumberPickerPre"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/textColonPre"
+        app:layout_constraintEnd_toStartOf="@+id/textColonPre"
+        app:layout_constraintTop_toTopOf="@+id/textColonPre" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerPresec"
+        android:layout_width="60dp"
+        android:layout_height="100dp"
+        android:background="#00862C2C"
+        android:descendantFocusability="blocksDescendants"
+        android:theme="@style/NumberPickerPre"
+        app:layout_constraintBottom_toBottomOf="@+id/textColonPre"
+        app:layout_constraintStart_toEndOf="@+id/textColonPre"
+        app:layout_constraintTop_toTopOf="@+id/textColonPre" />
+
+    <TextView
+        android:id="@+id/textColonPre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="120dp"
+        android:gravity="center_horizontal"
+        android:text="@string/colon"
+        android:textColor="?android:attr/textColorPrimary"
+        android:theme="@style/NumberPickerPre"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

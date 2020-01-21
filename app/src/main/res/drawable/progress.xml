@@ -8,7 +8,7 @@
             android:thickness="5dp"
             android:useLevel="false">
             <solid
-                android:color="#ff0000"/>
+                android:color="#660000"/>
         </shape>
     </item>
     <item android:id="@android:id/secondaryProgress">
@@ -18,14 +18,14 @@
             android:thickness="5dp"
             android:useLevel="true">
             <solid
-                android:color="#80ff00"/>
+                android:color="#006600"/>
         </shape>
     </item>
     <item android:id="@android:id/progress">
         <shape
             android:shape="ring"
-            android:innerRadius="150dp"
-            android:thickness="5dp"
+            android:innerRadius="149dp"
+            android:thickness="7dp"
             android:useLevel="true">
             <solid
                 android:color="@color/colorPrimary"/>
