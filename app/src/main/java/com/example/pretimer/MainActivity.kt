@@ -5,7 +5,6 @@ import android.media.AudioAttributes
 import android.media.SoundPool
 import android.os.*
 import android.view.View.*
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.ceil
@@ -21,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     var timeMillis: Long = timePreset
     var timer: Timer? = null // null == 停止中 / null != 稼働中
     private lateinit var soundPool: SoundPool
-    private lateinit var textView: TextView
     private var alert = 0
     private var pause: Long = 0
     private var timeMax: Long = timePreset
