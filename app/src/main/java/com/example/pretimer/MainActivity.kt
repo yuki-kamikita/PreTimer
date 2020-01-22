@@ -4,9 +4,12 @@ import android.content.Context
 import android.media.AudioAttributes
 import android.media.SoundPool
 import android.os.*
+import android.util.Log
 import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.BufferedReader
+import java.io.File
 import kotlin.math.ceil
 import kotlin.math.floor
 
@@ -17,13 +20,14 @@ class MainActivity : AppCompatActivity() {
     private var preTime: Long = 30000 // ms
 
     /* 関数初期化 */
-    var timeMillis: Long = timePreset
-    var timer: Timer? = null // null == 停止中 / null != 稼働中
+    private val lastTime = "lastTime.txt"
+    private val lastPretime = "lastPretime.txt"
+    private var timeMillis: Long = timePreset
+    private var timer: Timer? = null // null == 停止中 / null != 稼働中
     private lateinit var soundPool: SoundPool
     private var alert = 0
     private var pause: Long = 0
     private var timeMax: Long = timePreset
-
 
     /* 残り時間 (ms)→(分：秒) 表示用テキスト変換 */
     private fun formatText(time: Long): String {
@@ -50,21 +54,48 @@ class MainActivity : AppCompatActivity() {
         textColonPre.visibility = view
     }
 
+    /* ファイル保存 */
+    private fun saveFile(file: String, str: String) {
+        applicationContext.openFileOutput(file, Context.MODE_PRIVATE).use {
+            it.write(str.toByteArray())
+        }
+//        File(applicationContext.filesDir, file).writer().use {
+//            it.write(str)
+//        }
+    }
+
+    /* ファイル読み込み */
+    private fun readFiles(file: String): String? {
+        // to check whether file exists or not
+        val readFile = File(applicationContext.filesDir, file)
+
+        if(!readFile.exists()) {
+            Log.d("debug","No file exists")
+            return null
+        } else {
+            return readFile.bufferedReader().use(BufferedReader::readText)
+        }
+    }
+
     /* 全体 */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide() // タイトルバー非表示
 
+        // 起動時に最後に開始した時間を読み込み
+        if(readFiles(lastTime) != null) timeMillis = readFiles(lastTime)!!.toLong()
+        if(readFiles(lastPretime) != null) preTime = readFiles(lastPretime)!!.toLong()
+
         // 初期表示
-        timeText.text = formatText(timePreset)
+        timeText.text = formatText(timeMillis)
         drawBar(timeMillis ,preTime)
         numberPickerMin.minValue = 0
         numberPickerMin.maxValue = 199
-        numberPickerMin.value = floor(ceil(timePreset.toDouble() / 1000) / 60).toInt()
+        numberPickerMin.value = floor(ceil(timeMillis.toDouble() / 1000) / 60).toInt()
         numberPickerSec.minValue = 0
         numberPickerSec.maxValue = 59
-        numberPickerSec.value = (ceil(timePreset.toDouble() / 1000) % 60).toInt()
+        numberPickerSec.value = (ceil(timeMillis.toDouble() / 1000) % 60).toInt()
         numberPickerPremin.minValue = 0
         numberPickerPremin.maxValue = 199
         numberPickerPremin.value = floor(ceil(preTime.toDouble() / 1000) / 60).toInt()
@@ -98,6 +129,8 @@ class MainActivity : AppCompatActivity() {
                     preTime = (numberPickerPremin.value*60000 + numberPickerPresec.value*1000).toLong()
                     drawBar(timeMillis ,preTime)
                     timeMax = timeMillis
+                    saveFile(lastTime, timeMillis.toString()) // 記録
+                    saveFile(lastPretime, preTime.toString()) // 記録
                 }
                 if (timeMillis > 0) {
                     startTimer(timeMillis)
