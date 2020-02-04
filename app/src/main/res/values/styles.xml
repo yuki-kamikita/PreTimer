@@ -9,8 +9,12 @@
         <item name="android:textColorPrimary">@android:color/white</item>
     </style>
 
-    <style name="NumberPicker">22dp</style>
+    <style name="NumberPicker">
+        <item name="android:textSize">22sp</item>
+    </style>
 
-    <style name="NumberPickerPre">12dp</style>
+    <style name="NumberPickerPre">
+        <item name="android:textSize">12sp</item>
+    </style>
 
 </resources>
