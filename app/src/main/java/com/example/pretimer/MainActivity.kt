@@ -1,4 +1,4 @@
-package com.example.pretimer
+package com.PreTimer.pretimer
 
 import android.content.Context
 import android.media.AudioAttributes
